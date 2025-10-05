@@ -1,4 +1,4 @@
-```markdown
+
 # Dynatrace Setup Manual
 
 This manual provides a step-by-step guide to configure Dynatrace with the necessary permissions, user groups, and deployment steps.
@@ -10,7 +10,7 @@ This manual provides a step-by-step guide to configure Dynatrace with the necess
 ### Create a Dynatrace Policy with the Following Permissions
 
 #### States
-```plaintext
+
 ALLOW state:app-states:delete, state:app-states:read, state:app-states:write, 
       state:user-app-states:read, state:user-app-states:write, 
       state:user-app-states:delete, state-management:user-app-states:delete, 
