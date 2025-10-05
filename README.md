@@ -1,8 +1,5 @@
 
-# Dynatrace Setup Manual
-
-This manual provides a step-by-step guide to configure Dynatrace with the necessary permissions, user groups, and deployment steps.
-
+# Dynatrace Automation Automation Use Case setup step by step guide
 ---
 
 ## Step 1: User Permissions Needed to Run the Setup
@@ -15,10 +12,9 @@ ALLOW state:app-states:delete, state:app-states:read, state:app-states:write,
       state:user-app-states:read, state:user-app-states:write, 
       state:user-app-states:delete, state-management:user-app-states:delete, 
       state-management:user-app-states:delete-all, state-management:app-states:delete;
-```
 
 #### Documents
-```plaintext
+
 ALLOW document:documents:read, document:documents:write, document:documents:delete, 
       document:documents:admin, document:environment-shares:read, 
       document:environment-shares:write, document:environment-shares:claim, 
@@ -26,64 +22,64 @@ ALLOW document:documents:read, document:documents:write, document:documents:dele
       document:direct-shares:write, document:direct-shares:delete, 
       document:trash.documents:read, document:trash.documents:restore, 
       document:trash.documents:delete;
-```
+
 
 #### Grail
-```plaintext
+
 ALLOW storage:bucket-definitions:read, storage:filter-segments:read, 
       storage:fieldset-definitions:read, storage:fieldset-definitions:write;
 ALLOW storage:filter-segments:read, storage:filter-segments:write, 
       storage:filter-segments:share, storage:filter-segments:delete, 
       storage:filter-segments:admin;
-```
+
 
 #### Hub
-```plaintext
+
 ALLOW hub:catalog:read;
-```
+
 
 #### AppEngine
-```plaintext
+
 ALLOW app-engine:apps:run, app-engine:functions:run, app-engine:edge-connects:read, 
       app-engine:edge-connects:write, app-engine:edge-connects:delete, 
       app-engine:apps:install, app-engine:apps:delete;
-```
+
 
 #### AutomationEngine
-```plaintext
+
 ALLOW automation:workflows:read, automation:calendars:read, automation:rules:read, 
       automation:workflows:write, automation:workflows:run, automation:calendars:write, 
       automation:rules:write, automation:workflows:admin;
-```
+
 
 #### Davis
-```plaintext
+
 ALLOW davis:analyzers:read, davis:analyzers:execute;
-```
+
 
 #### IAM
-```plaintext
+
 ALLOW iam:service-users:use, oauth2:clients:manage;
-```
+
 
 #### Settings
-```plaintext
+
 ALLOW settings:objects:read, settings:schemas:read, app-settings:objects:read, 
       app-settings:objects:write, settings:objects:write, settings:objects:admin, 
       app-settings:objects:admin;
-```
+
 
 #### Deployment
-```plaintext
+
 ALLOW deployment:activegates.network-zones:write, deployment:activegates.groups:write, 
       deployment:oneagents.network-zones:write, deployment:oneagents.host-groups:write, 
       deployment:oneagents.host-tags:write, deployment:oneagents.host-properties:write;
-```
+
 
 #### Hyperscaler Authentication
-```plaintext
+
 ALLOW hyperscaler-authentication:aws:authenticate;
-```
+
 
 ---
 
@@ -117,7 +113,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 Go to account management and create an OAuth token with the following permissions:
 
-```plaintext
+
 automation:workflows:read
 automation:workflows:write
 automation:workflows:run
@@ -138,7 +134,7 @@ iam:bindings:read, iam:effective-permissions:read, iam:service-users:use,
 iam:limits:read, iam:boundaries:read, iam:boundaries:write
 Manage platform tokens
 platform-token:tokens:manage
-```
+
 
 Save the **Client ID** and **Client Secret**.
 
