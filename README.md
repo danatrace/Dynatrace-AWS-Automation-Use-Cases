@@ -1,5 +1,5 @@
 
-# Dynatrace Automation Automation Use Case setup step by step guide
+## Dynatrace Automation Automation Use Case setup step by step guide
 
 ## Step 1: Create user permissions needed to run the setup
 
