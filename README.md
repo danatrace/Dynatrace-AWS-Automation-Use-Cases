@@ -2,7 +2,7 @@
 ## Dynatrace AWS Automation Use Cases setup step by step guide
 
 ### Step 1: Create user permissions needed to run the setup
-##### Go to Dynatrace Account Mangement and create a Dynatrace policy and copy and paste the following permissions into the Policy:
+#### Go to Dynatrace Account Mangement and create a Dynatrace policy and copy and paste the following permissions into the Policy:
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu
 ```   
 //States
@@ -41,7 +41,7 @@ ALLOW deployment:activegates.network-zones:write, deployment:activegates.groups:
 ALLOW hyperscaler-authentication:aws:authenticate;
 ```
 
-##### Create a Dynatrace User Group and add policies and roles
+#### Create a Dynatrace User Group and add policies and roles
  1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Group Management" from the Dropdown menu
  2. Click on the "+ Create Group" button and give your group a name
  3. In the group click on the "+ permissions" button and add the policy that you have created in the previous step to the group
