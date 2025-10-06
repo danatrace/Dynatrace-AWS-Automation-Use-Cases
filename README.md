@@ -2,7 +2,7 @@
 # Dynatrace Automation Automation Use Case setup step by step guide
 
 
-## Step 1: User Permissions Needed to Run the Setup
+## Step 1: Create user permissions needed to run the setup
 
 ### Create a Dynatrace Policy and copy and paste the following permissions into the Policy
 
