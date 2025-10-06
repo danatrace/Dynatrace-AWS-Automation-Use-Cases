@@ -2,7 +2,7 @@
 ## Dynatrace AWS Automation Use Cases setup step by step guide
 
 ### Step 1: Create user permissions needed to run the setup
-#### Go to Dynatrace Account Mangement and create a Dynatrace policy and copy and paste the following permissions into the Policy:
+#### Create a Dynatrace Policy:
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu.
 2. Click on the "+ Create policy" button
 3. Give the policy a name
@@ -44,7 +44,7 @@ ALLOW deployment:activegates.network-zones:write, deployment:activegates.groups:
 ALLOW hyperscaler-authentication:aws:authenticate;
 ```
 
-#### Create a Dynatrace User Group and add policies and roles
+#### Create a Dynatrace User Group and add policies and roles:
  1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Group Management" from the Dropdown menu
  2. Click on the "+ Create Group" button and give your group a name
  3. In the group click on the "+ permissions" button and add the policy that you have created in the previous step to the group
@@ -53,7 +53,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
      * View and manage users and groups
      * View account
 
-#### Add the group to the user that is going to be the Workflow Owner
+#### Add the group to the user that is going to be the Workflow Owner:
  1. Go to Dynatrace Account Management, click on "Identitiy & Access Management" and chose "User Management" from the Dropdown menu  
  2. In the Search field, search for the user that you have chosen to become the Workflow Owner and click on the user
  3. Now Add the group that you have created in the previous step to the user  <br <br
@@ -61,7 +61,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
     
 ---
 
-## Step 2: Give workflow owner the permissions in the Workflows App
+## Step 2: Give workflow owner the permissions in the Workflows App:
  In your Dynatrace Tenant: 
  1. Go to the workflows app
  2. Click on the "settings" icon in the upper right corner and chose "Authorization settings"
