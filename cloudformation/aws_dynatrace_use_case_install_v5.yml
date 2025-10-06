@@ -1,0 +1,513 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Dynatrace AWS Use Case Install v5 Templates
+
+Metadata:
+  Version:
+    Number: v0.5.3
+
+  AWS::CloudFormation::Interface:
+  
+    ParameterGroups:
+      - Label:
+          default: "Dynatrace Workflow Permissions"
+        Parameters:
+          - WFOwneremail
+
+      - Label:
+          default: "Dynatrace AWS OIDC Connection Settings"
+        Parameters:
+          - Dtawsconnectionname
+
+
+
+      - Label:
+          default: "Dynatrace AWS Use Cases Workflow Templates to install"
+        Parameters:
+          - Dtinstalllowstorageusecase
+          - Dtinstallhighcpumemusecase
+          - Creates3bucketremediationworkflows
+          - Dtinstallsecuritygroupusecase
+
+      - Label:
+          default: "Dynatrace AWS Use Case Chaos Testing Workflows to Install"
+        Parameters:
+          - Dtinstallchaosworkflowslowstorage
+          - Dtinstallchaosworkflowshighcpumem
+          - chaosworkflowss3bucket
+          - Dtinstallchaosworkflowssecuritygroup
+      - Label:
+          default: "AWS Chaos Testing Instances to install"
+        Parameters:
+          - Createwfawsinstanceshighcpumem
+          - Createwfawsinstanceslowstorage
+      - Label:
+          default: "Create AWS Dynatrace OIDC Connection"
+        Parameters:
+          - InstallOIDCconnection
+      - Label:
+          default: "Dynatrace Tenant Information"
+        Parameters:
+          - DTtenant
+          - Dtaccountuid
+          - DTaccesstoken
+      - Label:
+          default: "Dynatrace Tenant Tokens and Oauth info"
+        Parameters:
+          - DTclientid
+          - DTclientsecret
+    ParameterLabels:
+      DTtenant:
+        default: 'Dynatrace Tenant url for example egu21869.apps.dynatrace.com'
+      DTclientid:
+        default: "Dynatrace Cliend ID"
+      DTclientsecret:
+        default: "Dynatrace Client Secret"
+      WFOwneremail:
+        default: "Email address that will be assigned as Dynatrace Workflow Owner"
+      Dtaccountuid:
+        default: "Dynatrace Account UID"
+      Dtinstalllowstorageusecase:
+        default: "Install Low Storage Remeidation Use Case"
+      Dtinstallchaosworkflowslowstorage:
+        default: "Install Chaos Workflows for Low Storage Use Case"
+      Createwfawsinstanceslowstorage:
+        default: "Create AWS Instances for Low Storage Use Case testing"
+      Dtinstallhighcpumemusecase:
+        default: "Install High CPU/Memory Remediation Use Case"
+      Dtinstallchaosworkflowshighcpumem:
+        default: "Install Chaos Workflows for High CPU/Memory Use Case"
+      Createwfawsinstanceshighcpumem:
+        default: "Create AWS Instances for High CPU/Memory Use Case testing"
+      Creates3bucketremediationworkflows:
+        default: "Install S3 Bucket Remediation Use Case"
+      chaosworkflowss3bucket:
+        default: "Install Chaos Workflows for S3 Bucket Use Case"
+      DTaccesstoken:
+        default: "Dynatrace Agent Access token, needed to install OneAgent on Ec2 instance for Process Cpu remediation use case"
+      InstallOIDCconnection:
+        default: "Create Dynatrace OIDC connection"
+      Dtinstallsecuritygroupusecase:
+        default: "Install Security Group Remediation Use Case"
+      Dtinstallchaosworkflowssecuritygroup:
+        default: "Install Chaos Workflows for Security Group Remediation Use Case"
+      Dtawsconnectionname:
+        default: "The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)"
+      
+
+
+Parameters:
+  DTtenant:
+    Description: Dynatrace Tenant url for example egu21869.apps.dynatrace.com
+    Type: String
+
+  DTaccesstoken:
+    Description: Dynatrace Agent Access token
+    Type: String
+    NoEcho: true
+
+  DTclientid:
+    Description: Dynatrace Cliend ID
+    Type: String
+    NoEcho: true
+
+  DTclientsecret:
+    Description: Dynatrace Client Secret
+    Type: String
+    NoEcho: true
+
+  WFOwneremail:
+    Description: Email address of an existing Dynatrace Tenant User that will be assigned as Workflow Owner for all workflows. Also User will be given Workflow Builder and Workflow Admin permissions
+    Type: String
+
+  Dtaccountuid:
+    Description: Dynatrace Account UID of tenant where use cases will be installed (In Dynatrace Ui -> Account Management -> Choose the Account that contains the tenant -> click on the Support Information Button, from the copied information take the value for accountUuid )
+    Type: String
+
+  Dtinstalllowstorageusecase:
+    Default: "true"
+    Description: Install Low Storage Remeidation Workflow Templates
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Dtinstallchaosworkflowslowstorage:
+    Default: "true"
+    Description: Install Chaos Workflows for Low Storage Use Case
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+
+  Createwfawsinstanceslowstorage:
+    Default: "true"
+    Description: Create AWS Instances for Low Storage Use Case testing
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Dtinstallhighcpumemusecase:
+    Default: "true"
+    Description: Install High CPU/Memory Remediation Workflow Templates
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+
+  Dtinstallchaosworkflowshighcpumem:
+    Default: "true"
+    Description: Install Chaos Workflows for High CPU/Memory Use Case
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+
+  Createwfawsinstanceshighcpumem:
+    Default: "true"
+    Description: Create AWS Instances for High CPU/Memory Use Case testing
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Creates3bucketremediationworkflows:
+    Default: "true"
+    Description: Create S3 Bucket Remediation Workflows
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+
+  chaosworkflowss3bucket:
+    Default: "false"
+    Description: Install Chaos Workflows for S3 Bucket Use Case
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  InstallOIDCconnection:
+    Default: "true"
+    Description: Create Dynatrace OIDC connection settings for AWS Account (set to false if already created)
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Dtinstallsecuritygroupusecase:
+    Default: "true"
+    Description: Install Security Group Remediation Use Case
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Dtinstallchaosworkflowssecuritygroup:
+    Default: "true"
+    Description: Install Chaos Workflows for Security Group Remediation Use Case
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+
+  Dtawsconnectionname:
+    Default: ${AWS::AccountId}
+    Description: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
+    Type: String
+
+
+
+Conditions:
+  IsSprint:
+    Fn::Equals:
+      - !Select [1, !Split [".", !Ref DTtenant]]
+      - "sprint"
+
+Resources:
+  MyOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url:
+        Fn::If:
+          - IsSprint
+          - "https://hard.token.dynatracelabs.com"
+          - "https://token.dynatrace.com"
+
+      ClientIdList:
+        - !Sub ${ DTtenant }/app-id/dynatrace.aws.connector
+
+  MyIAMPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: dynatrace_workflow_list_regions
+      Description: Policy for OIDC-assumed role.
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - account:ListRegions
+            Resource: "*"
+  MyOIDCProviderRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: dynatrace_oidc_conn_for_workflows
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !GetAtt MyOIDCProvider.Arn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                Fn::If:
+                  - IsSprint
+                  - hard.token.dynatracelabs.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+                  - token.dynatrace.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+
+      ManagedPolicyArns:
+        - !Ref MyIAMPolicy
+        - arn:aws:iam::aws:policy/AdministratorAccess
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+        - arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess
+        - arn:aws:iam::aws:policy/AmazonECS_FullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
+  DynwfCreateCloudFormationStack:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: Dynwf-CreateCloudFormationStack
+      DocumentType: Automation
+      Content:
+        schemaVersion: "0.3"
+        description:
+          This is a Cloudformation Template used to trigger cloudformation
+          stack creation from Dynatrace Workflows
+        parameters:
+          stackname:
+            type: String
+          cfyamls3url:
+            type: String
+        mainSteps:
+          - name: CreateCloudFormationStack
+            action: aws:createStack
+            isEnd: true
+            inputs:
+              StackName: "{{ stackname }}"
+              Capabilities:
+                - CAPABILITY_NAMED_IAM
+              TimeoutInMinutes: 120
+              TemplateURL: "{{ cfyamls3url }}"
+        outputs:
+          - CreateCloudFormationStack.StackId
+          - CreateCloudFormationStack.StackStatus
+          - CreateCloudFormationStack.StackStatusReason
+          - CreateCloudFormationStack.OutputPayload
+  DynwfDeleteCloudFormationStack:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: Dynwf-DeleteCloudFormationStack
+      DocumentType: Automation
+      Content:
+        schemaVersion: "0.3"
+        description:
+          This is a Cloudformation Template used to trigger cloudformation
+          stack deletion from Dynatrace Workflows
+        parameters:
+          stackname:
+            type: String
+        mainSteps:
+          - name: DeleteCloudFormationStack
+            action: aws:deleteStack
+            isEnd: true
+            inputs:
+              StackName: "{{ stackname }}"
+  Dynwflocalextendebsvolume:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: Dynwf-local-extend-ebs-volume
+      DocumentType: Automation
+      Content:
+        schemaVersion: "0.3"
+        description:
+          This is a Cloudformation Template used to trigger local disk
+          partition resize from Dynatrace Workflows
+        parameters:
+          instanceids:
+            type: StringList
+          MountPoint:
+            type: String
+        mainSteps:
+          - name: Loop
+            action: aws:loop
+            isEnd: true
+            inputs:
+              MaxIterations: 10
+              LoopCondition:
+                And:
+                  - Not:
+                      Variable: "{{ RunCommandOnInstances.ResponseCode }}"
+                      NumericEquals: 0
+                  - Not:
+                      Variable: "{{ RunCommandOnInstances.Output }}"
+                      Contains: "rm: cannot remove '/home/ubuntu/large_file.log'"
+              Steps:
+                - name: RunCommandOnInstances
+                  action: aws:runCommand
+                  maxAttempts: 1
+                  timeoutSeconds: 600
+                  isEnd: true
+                  onFailure: Continue
+                  inputs:
+                    DocumentName: AWS-RunShellScript
+                    Parameters:
+                      commands:
+                        - partition=`findmnt -T '{{ MountPoint }}' | awk
+                          '{{print $2}}' | sed -n 2p`
+                        - echo $partition
+                        - deviceName=`lsblk -npo pkname $partition`
+                        - echo $deviceName
+                        - partitionNumber=`echo ${partition#$deviceName} | cut
+                          -c2`
+                        - echo $partitionNumber
+                        - sudo growpart $deviceName $partitionNumber
+                        - sudo xfs_growfs -d / || true
+                        - sudo resize2fs $partition || true
+                    InstanceIds: "{{ instanceids }}"
+                  outputs:
+                    - Type: String
+                      Selector: $.Payload.output
+                      Name: error
+  EC2Instance2:
+    Type: AWS::EC2::Instance
+    DependsOn: MyOIDCProvider
+    Properties:
+      Tags:
+        - Key: environment
+          Value: !Sub trigger_workflow_${AWS::AccountId}
+        - Key: Name
+          Value: !Sub trigger_workflow_${AWS::AccountId}
+      InstanceType: t3.medium
+      ImageId: ami-04b4f1a9cf54c11d0
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeSize: 50
+            VolumeType: gp3
+            Encrypted: true
+      UserData: !Base64
+        Fn::Sub: |
+          #!/bin/bash
+          string=${ DTtenant }
+          if [[ $string == *"sprint"* ]]; then
+            ssourl="https://sso-sprint.dynatracelabs.com/sso/oauth2/token"
+          else
+            ssourl="https://sso.dynatrace.com/sso/oauth2/token"
+          fi
+
+          create_token()
+          {
+          result=$(curl --request POST "$ssourl" \
+          --header 'Content-Type: application/x-www-form-urlencoded' \
+          --data-urlencode 'grant_type=client_credentials' \
+          --data-urlencode "client_id=${ DTclientid }" \
+          --data-urlencode "client_secret=${ DTclientsecret }" \
+          --data-urlencode 'automation:workflows:run automation:rules:read automation:rules:write automation:calendars:read automation:calendars:write')
+          result_dyna=$(echo $result | jq -r '.access_token')
+          echo $result_dyna
+          }
+
+          get_validation_status()
+          {
+          create_token
+          curl -X 'GET' \
+          "https://${ DTtenant }/platform/automation/v1/executions/$(echo $id)" \
+          -H 'accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -H "authorization: Bearer $(echo $result_dyna)" | jq -r '.state'
+          }
+
+
+
+
+          start_gameday_install_wf()
+          {
+          create_token
+          res=$(curl -X 'POST' \
+          "https://${ DTtenant }/platform/automation/v1/workflows/1fc55164-d225-45a9-9281-07d7e62ce89d/run" \
+          -H 'accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -H "authorization: Bearer $(echo $result_dyna)" \
+          -d '{
+                  "input": {
+                      "owner_email": "${ WFOwneremail }",
+                      "DTaccesstoken": "${ DTaccesstoken }",
+                      "awsaccountid": "${AWS::AccountId}",
+                      "awsregion": "${AWS::Region}",
+                      "dtaccountuid": "${ Dtaccountuid }",
+                      "create_dashboards": true,
+                      "dt_oauth_client_id": "${ DTclientid }",
+                      "dt_oauth_client_secret": "${ DTclientsecret }",
+                      "AWS-EBS-remediate-low-storage": {
+                      "install": ${ Dtinstalllowstorageusecase},
+                      "wf_triggers_active": false,
+                      "chaos_wf_aws_instances": ${ Createwfawsinstanceslowstorage},
+                      "install_chaos_workflows": ${ Dtinstallchaosworkflowslowstorage},
+                      "chaos_wf_triggers_active": false
+                      },
+                      "create_workflow_groups_and_policies": true,
+                      "create-s3bucket-remediation-workflows": {
+                        "install": ${ Creates3bucketremediationworkflows},
+                        "wf_triggers_active": false,
+                        "install_chaos_workflows":  ${ chaosworkflowss3bucket},
+                        "chaos_wf_triggers_active": false
+                      },
+                      "create-aws-security-group-remediation-workflows": {
+                        "install": ${ Dtinstallsecuritygroupusecase },
+                        "wf_triggers_active": false,
+                        "install_chaos_workflows":  ${ Dtinstallchaosworkflowssecuritygroup },
+                        "chaos_wf_triggers_active": false
+                      },
+                      "create_aws_systems_manager_roles_for_ec2": true,
+                      "create-dynatrace-oidc-connection-settings": {
+                        "install": ${ InstallOIDCconnection },
+                        "dynatraceawsconnection": "${ Dtawsconnectionname }"
+                      },
+                      "AmazonSSMManagedInstanceCore_instance_profile_ec2": "AmazonSSMManagedInstanceCore",
+                      "AWS-Ec2-remediate-high-cpu-or-memory-consumption-by-processes": {
+                        "install": ${ Dtinstallhighcpumemusecase},
+                        "wf_triggers_active": false,
+                        "chaos_wf_aws_instances": ${ Createwfawsinstanceshighcpumem},
+                        "install_chaos_workflows": ${ Dtinstallchaosworkflowshighcpumem},
+                        "chaos_wf_triggers_active": false
+                      }
+
+                  }
+              }')
+          echo $res
+          id=$(echo $res | jq -r '.id')
+          echo $id
+          while [[ $(get_validation_status) == "RUNNING" ]]; do
+          sleep 90
+          echo $(get_validation_status)
+          done
+
+          }
+
+          start_gameday_install_wf
+          sleep 90
+          shutdown -h now
+
+Outputs:
+  IAMRoleARN:
+    Description: The ARN of the created IAM Role
+    Value: !GetAtt MyOIDCProviderRole.Arn
