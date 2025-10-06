@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: "2010-09-09"
+AWSTemplateFormatVersion: '2010-09-09'
 Description: Dynatrace AWS Use Case Install v5 Templates
 
 Metadata:
@@ -6,22 +6,21 @@ Metadata:
     Number: v0.5.3
 
   AWS::CloudFormation::Interface:
-  
+
     ParameterGroups:
       - Label:
-          default: "Create AWS Dynatrace OIDC Connection"
+          default: Create AWS Dynatrace OIDC Connection
         Parameters:
           - InstallOIDCconnection
           - Dtawsconnectionname
 
-    
       - Label:
-          default: "Dynatrace Workflow Permissions"
+          default: Dynatrace Workflow Permissions
         Parameters:
           - WFOwneremail
 
       - Label:
-          default: "Dynatrace AWS Use Cases Workflow Templates to install"
+          default: Dynatrace AWS Use Cases Workflow Templates to install
         Parameters:
           - Dtinstalllowstorageusecase
           - Dtinstallhighcpumemusecase
@@ -29,67 +28,67 @@ Metadata:
           - Dtinstallsecuritygroupusecase
 
       - Label:
-          default: "Dynatrace AWS Use Case Chaos Testing Workflows to Install"
+          default: Dynatrace AWS Use Case Chaos Testing Workflows to Install
         Parameters:
           - Dtinstallchaosworkflowslowstorage
           - Dtinstallchaosworkflowshighcpumem
           - chaosworkflowss3bucket
           - Dtinstallchaosworkflowssecuritygroup
       - Label:
-          default: "AWS Chaos Testing Instances to install"
+          default: AWS Chaos Testing Instances to install
         Parameters:
           - Createwfawsinstanceshighcpumem
           - Createwfawsinstanceslowstorage
       - Label:
-          default: "Dynatrace Tenant Information"
+          default: Dynatrace Tenant Information
         Parameters:
           - DTtenant
           - Dtaccountuid
           - DTaccesstoken
       - Label:
-          default: "Dynatrace Tenant Tokens and Oauth info"
+          default: Dynatrace Tenant Tokens and Oauth info
         Parameters:
           - DTclientid
           - DTclientsecret
     ParameterLabels:
       DTtenant:
-        default: 'Dynatrace Tenant url for example egu21869.apps.dynatrace.com'
+        default: Dynatrace Tenant url for example egu21869.apps.dynatrace.com
       DTclientid:
-        default: "Dynatrace Cliend ID"
+        default: Dynatrace Cliend ID
       DTclientsecret:
-        default: "Dynatrace Client Secret"
+        default: Dynatrace Client Secret
       WFOwneremail:
-        default: "Email address that will be assigned as Dynatrace Workflow Owner"
+        default: Email address that will be assigned as Dynatrace Workflow Owner
       Dtaccountuid:
-        default: "Dynatrace Account UID"
+        default: Dynatrace Account UID
       Dtinstalllowstorageusecase:
-        default: "Install Low Storage Remeidation Use Case"
+        default: Install Low Storage Remeidation Use Case
       Dtinstallchaosworkflowslowstorage:
-        default: "Install Chaos Workflows for Low Storage Use Case"
+        default: Install Chaos Workflows for Low Storage Use Case
       Createwfawsinstanceslowstorage:
-        default: "Create AWS Instances for Low Storage Use Case testing"
+        default: Create AWS Instances for Low Storage Use Case testing
       Dtinstallhighcpumemusecase:
-        default: "Install High CPU/Memory Remediation Use Case"
+        default: Install High CPU/Memory Remediation Use Case
       Dtinstallchaosworkflowshighcpumem:
-        default: "Install Chaos Workflows for High CPU/Memory Use Case"
+        default: Install Chaos Workflows for High CPU/Memory Use Case
       Createwfawsinstanceshighcpumem:
-        default: "Create AWS Instances for High CPU/Memory Use Case testing"
+        default: Create AWS Instances for High CPU/Memory Use Case testing
       Creates3bucketremediationworkflows:
-        default: "Install S3 Bucket Remediation Use Case"
+        default: Install S3 Bucket Remediation Use Case
       chaosworkflowss3bucket:
-        default: "Install Chaos Workflows for S3 Bucket Use Case"
+        default: Install Chaos Workflows for S3 Bucket Use Case
       DTaccesstoken:
-        default: "Dynatrace Agent Access token, needed to install OneAgent on Ec2 instance for Process Cpu remediation use case"
+        default: Dynatrace Agent Access token, needed to install OneAgent on Ec2
+          instance for Process Cpu remediation use case
       InstallOIDCconnection:
-        default: "Create Dynatrace OIDC connection"
+        default: Create Dynatrace OIDC connection
       Dtinstallsecuritygroupusecase:
-        default: "Install Security Group Remediation Use Case"
+        default: Install Security Group Remediation Use Case
       Dtinstallchaosworkflowssecuritygroup:
-        default: "Install Chaos Workflows for Security Group Remediation Use Case"
+        default: Install Chaos Workflows for Security Group Remediation Use Case
       Dtawsconnectionname:
-        default: "The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)"
-      
-
+        default: The name of the aws oidc connection for workflows in Dynatrace
+          (recommended to use the AWS Account ID)
 
 Parameters:
   DTtenant:
@@ -112,127 +111,130 @@ Parameters:
     NoEcho: true
 
   WFOwneremail:
-    Description: Email address of an existing Dynatrace Tenant User that will be assigned as Workflow Owner for all workflows. Also User will be given Workflow Builder and Workflow Admin permissions
+    Description: Email address of an existing Dynatrace Tenant User that will be
+      assigned as Workflow Owner for all workflows. Also User will be given
+      Workflow Builder and Workflow Admin permissions
     Type: String
 
   Dtaccountuid:
-    Description: Dynatrace Account UID of tenant where use cases will be installed (In Dynatrace Ui -> Account Management -> Choose the Account that contains the tenant -> click on the Support Information Button, from the copied information take the value for accountUuid )
+    Description: Dynatrace Account UID of tenant where use cases will be installed
+      (In Dynatrace Ui -> Account Management -> Choose the Account that contains
+      the tenant -> click on the Support Information Button, from the copied
+      information take the value for accountUuid )
     Type: String
 
   Dtinstalllowstorageusecase:
-    Default: "true"
+    Default: 'true'
     Description: Install Low Storage Remeidation Workflow Templates
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Dtinstallchaosworkflowslowstorage:
-    Default: "true"
+    Default: 'true'
     Description: Install Chaos Workflows for Low Storage Use Case
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
-
+      - 'true'
+      - 'false'
 
   Createwfawsinstanceslowstorage:
-    Default: "true"
+    Default: 'true'
     Description: Create AWS Instances for Low Storage Use Case testing
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Dtinstallhighcpumemusecase:
-    Default: "true"
+    Default: 'true'
     Description: Install High CPU/Memory Remediation Workflow Templates
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
-
+      - 'true'
+      - 'false'
 
   Dtinstallchaosworkflowshighcpumem:
-    Default: "true"
+    Default: 'true'
     Description: Install Chaos Workflows for High CPU/Memory Use Case
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
-
+      - 'true'
+      - 'false'
 
   Createwfawsinstanceshighcpumem:
-    Default: "true"
+    Default: 'true'
     Description: Create AWS Instances for High CPU/Memory Use Case testing
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Creates3bucketremediationworkflows:
-    Default: "true"
+    Default: 'true'
     Description: Create S3 Bucket Remediation Workflows
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
-
+      - 'true'
+      - 'false'
 
   chaosworkflowss3bucket:
-    Default: "false"
+    Default: 'false'
     Description: Install Chaos Workflows for S3 Bucket Use Case
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   InstallOIDCconnection:
-    Default: "true"
-    Description: Create Dynatrace OIDC connection settings for AWS Account (set to false if already created)
+    Default: 'true'
+    Description: Create Dynatrace OIDC connection settings for AWS Account (set to
+      false if already created)
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Dtinstallsecuritygroupusecase:
-    Default: "true"
+    Default: 'true'
     Description: Install Security Group Remediation Use Case
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Dtinstallchaosworkflowssecuritygroup:
-    Default: "true"
+    Default: 'true'
     Description: Install Chaos Workflows for Security Group Remediation Use Case
     Type: String
     AllowedValues:
-      - "true"
-      - "false"
+      - 'true'
+      - 'false'
 
   Dtawsconnectionname:
-    Default: !Ref "AWS::AccountId"
-    Description: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
+    Default: !Sub "${AWS::AccountId}"
+    Description: The name of the aws oidc connection for workflows in Dynatrace
+      (recommended to use the AWS Account ID)
     Type: String
 
-
-
 Conditions:
-  IsSprint:
-    Fn::Equals:
-      - !Select [1, !Split [".", !Ref DTtenant]]
-      - "sprint"
+  IsSprint: !Equals
+    - !Select
+      - 1
+      - !Split
+        - .
+        - !Ref DTtenant
+    - sprint
 
 Resources:
   MyOIDCProvider:
     Type: AWS::IAM::OIDCProvider
     Properties:
-      Url:
-        Fn::If:
-          - IsSprint
-          - "https://hard.token.dynatracelabs.com"
-          - "https://token.dynatrace.com"
+      Url: !If
+        - IsSprint
+        - https://hard.token.dynatracelabs.com
+        - https://token.dynatrace.com
 
       ClientIdList:
         - !Sub ${ DTtenant }/app-id/dynatrace.aws.connector
@@ -243,29 +245,28 @@ Resources:
       ManagedPolicyName: dynatrace_workflow_list_regions
       Description: Policy for OIDC-assumed role.
       PolicyDocument:
-        Version: "2012-10-17"
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Action:
               - account:ListRegions
-            Resource: "*"
+            Resource: '*'
   MyOIDCProviderRole:
     Type: AWS::IAM::Role
     Properties:
       RoleName: dynatrace_oidc_conn_for_workflows
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
               Federated: !GetAtt MyOIDCProvider.Arn
             Action: sts:AssumeRoleWithWebIdentity
             Condition:
-              StringEquals:
-                Fn::If:
-                  - IsSprint
-                  - hard.token.dynatracelabs.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
-                  - token.dynatrace.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+              StringEquals: !If
+                - IsSprint
+                - hard.token.dynatracelabs.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+                - token.dynatrace.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
 
       ManagedPolicyArns:
         - !Ref MyIAMPolicy
@@ -284,9 +285,8 @@ Resources:
       Name: Dynwf-CreateCloudFormationStack
       DocumentType: Automation
       Content:
-        schemaVersion: "0.3"
-        description:
-          This is a Cloudformation Template used to trigger cloudformation
+        schemaVersion: '0.3'
+        description: This is a Cloudformation Template used to trigger cloudformation
           stack creation from Dynatrace Workflows
         parameters:
           stackname:
@@ -298,11 +298,11 @@ Resources:
             action: aws:createStack
             isEnd: true
             inputs:
-              StackName: "{{ stackname }}"
+              StackName: '{{ stackname }}'
               Capabilities:
                 - CAPABILITY_NAMED_IAM
               TimeoutInMinutes: 120
-              TemplateURL: "{{ cfyamls3url }}"
+              TemplateURL: '{{ cfyamls3url }}'
         outputs:
           - CreateCloudFormationStack.StackId
           - CreateCloudFormationStack.StackStatus
@@ -314,9 +314,8 @@ Resources:
       Name: Dynwf-DeleteCloudFormationStack
       DocumentType: Automation
       Content:
-        schemaVersion: "0.3"
-        description:
-          This is a Cloudformation Template used to trigger cloudformation
+        schemaVersion: '0.3'
+        description: This is a Cloudformation Template used to trigger cloudformation
           stack deletion from Dynatrace Workflows
         parameters:
           stackname:
@@ -326,16 +325,15 @@ Resources:
             action: aws:deleteStack
             isEnd: true
             inputs:
-              StackName: "{{ stackname }}"
+              StackName: '{{ stackname }}'
   Dynwflocalextendebsvolume:
     Type: AWS::SSM::Document
     Properties:
       Name: Dynwf-local-extend-ebs-volume
       DocumentType: Automation
       Content:
-        schemaVersion: "0.3"
-        description:
-          This is a Cloudformation Template used to trigger local disk
+        schemaVersion: '0.3'
+        description: This is a Cloudformation Template used to trigger local disk
           partition resize from Dynatrace Workflows
         parameters:
           instanceids:
@@ -351,11 +349,11 @@ Resources:
               LoopCondition:
                 And:
                   - Not:
-                      Variable: "{{ RunCommandOnInstances.ResponseCode }}"
+                      Variable: '{{ RunCommandOnInstances.ResponseCode }}'
                       NumericEquals: 0
                   - Not:
-                      Variable: "{{ RunCommandOnInstances.Output }}"
-                      Contains: "rm: cannot remove '/home/ubuntu/large_file.log'"
+                      Variable: '{{ RunCommandOnInstances.Output }}'
+                      Contains: 'rm: cannot remove ''/home/ubuntu/large_file.log'''
               Steps:
                 - name: RunCommandOnInstances
                   action: aws:runCommand
@@ -378,7 +376,7 @@ Resources:
                         - sudo growpart $deviceName $partitionNumber
                         - sudo xfs_growfs -d / || true
                         - sudo resize2fs $partition || true
-                    InstanceIds: "{{ instanceids }}"
+                    InstanceIds: '{{ instanceids }}'
                   outputs:
                     - Type: String
                       Selector: $.Payload.output
