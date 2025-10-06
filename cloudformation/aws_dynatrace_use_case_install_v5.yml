@@ -9,16 +9,16 @@ Metadata:
   
     ParameterGroups:
       - Label:
+          default: "Create AWS Dynatrace OIDC Connection"
+        Parameters:
+          - InstallOIDCconnection
+          - Dtawsconnectionname
+
+    
+      - Label:
           default: "Dynatrace Workflow Permissions"
         Parameters:
           - WFOwneremail
-
-      - Label:
-          default: "Dynatrace AWS OIDC Connection Settings"
-        Parameters:
-          - Dtawsconnectionname
-
-
 
       - Label:
           default: "Dynatrace AWS Use Cases Workflow Templates to install"
@@ -40,10 +40,6 @@ Metadata:
         Parameters:
           - Createwfawsinstanceshighcpumem
           - Createwfawsinstanceslowstorage
-      - Label:
-          default: "Create AWS Dynatrace OIDC Connection"
-        Parameters:
-          - InstallOIDCconnection
       - Label:
           default: "Dynatrace Tenant Information"
         Parameters:
