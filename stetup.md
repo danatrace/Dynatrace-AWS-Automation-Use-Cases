@@ -1,8 +1,8 @@
 
 ## Dynatrace AWS Automation Use Cases setup step by step guide
 
-### Step 1: Create user permissions needed to run the setup
-#### Create a Dynatrace Policy:
+### **Step 1: Create user permissions needed to run the setup**
+#### *Create a Dynatrace Policy:*
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu.
 2. Click on the "+ Create policy" button
 3. Give the policy a name
@@ -44,7 +44,7 @@ ALLOW deployment:activegates.network-zones:write, deployment:activegates.groups:
 ALLOW hyperscaler-authentication:aws:authenticate;
 ```
 
-#### Create a Dynatrace User Group and add policies and roles:
+#### *Create a Dynatrace User Group and add policies and roles:*
  1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Group Management" from the Dropdown menu
  2. Click on the "+ Create Group" button and give your group a name
  3. In the group click on the "+ permissions" button and add the policy that you have created in the previous step to the group
@@ -53,7 +53,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
      * View and manage users and groups
      * View account
 
-#### Add the group to the user that is going to be the Workflow Owner:
+#### *Add the group to the user that is going to be the Workflow Owner:*
  1. Go to Dynatrace Account Management, click on "Identitiy & Access Management" and chose "User Management" from the Dropdown menu  
  2. In the Search field, search for the user that you have chosen to become the Workflow Owner and click on the user
  3. Now Add the group that you have created in the previous step to the user  <br <br
@@ -61,8 +61,8 @@ ALLOW hyperscaler-authentication:aws:authenticate;
     
 ---
 
-## Step 2: Give workflow owner the permissions in the Workflows App:
- In your Dynatrace Tenant: 
+## **Step 2: Give workflow owner the permissions in the Workflows App:**
+ *In your Dynatrace Tenant: *
  1. Go to the workflows app
  2. Click on the "settings" icon in the upper right corner and chose "Authorization settings"
  3. In Authorizations check the checkboxes for:
@@ -74,8 +74,8 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## Step 3: Allow Outgoing Traffic for workflow tasks
- In your Dynatrace Tenant: 
+## **Step 3: Allow Outgoing Traffic for workflow tasks**
+ *In your Dynatrace Tenant: *
  1. Go to "settings classic"
  2. Click on preferences and "Limit outbound connections" 
  3. In "Limit outbound connections" click on the "Add item" button
@@ -91,8 +91,8 @@ ALLOW hyperscaler-authentication:aws:authenticate;
     * "{yourtenantid}.sprint.dynatrace.com"
 ---
 
-## Step 4: Install Apps from Dynatrace Hub
- In your Dynatrace Tenant: 
+## *Step 4: Install Apps from Dynatrace Hub*
+ *In your Dynatrace Tenant: *
  1. Search for the "Hub" app
  2. In the Hub App search for "AWS Connector"
  3. Install the "AWS Connector" App
@@ -100,16 +100,16 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## Step 5: Import and Deploy Workflow
- In your Dynatrace Tenant: 
+## **Step 5: Import and Deploy Workflow**
+ *In your Dynatrace Tenant: *
  1. Open the Workflows App
  2. Cilck on the "Upload" button in the upper right corner
  3. Upload the workflow ....yaml from this repository
 
 ---
 
-## Step 6: Create OAuth Token
- Go to account management and create an OAuth token with the following permissions:
+## **Step 6: Create OAuth Token**
+ *Go to account management and create an OAuth token with the following permissions:*
  * automation:workflows:read
  * automation:workflows:write
  * automation:workflows:run
@@ -130,12 +130,12 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  * iam:limits:read, iam:boundaries:read, iam:boundaries:write
  * Manage platform tokens
  * platform-token:tokens:manage
- Save the **Client ID** and **Client Secret**.
+ **Save the **Client ID** and **Client Secret**.**
 
 ---
 
-## Step 7: Create Access Token
- In your Dynatrace Tenant: 
+## **Step 7: Create Access Token**
+ *In your Dynatrace Tenant: *
  1. Go to **Deploy OneAgent** in the Dynatrace tenant.
  2. Click on **Create Agent for Linux**.
  3. Click on **Create Token** button.
@@ -143,7 +143,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## Step 8: Create the Cloudformation template
+## **Step 8: Create the Cloudformation template**
  1. Go to the **AWS Management Console** and open **CloudFormation**.
  2. Upload the CloudFormation template ....yaml from this repository
  3. Fill in the parameters.
@@ -151,7 +151,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## Step 9: Wait until the Workflow has finished
+## **Step 9: Wait until the Workflow has finished**
 
  In your Dynatrace Tenant: 
  1. Open the Workflows App
@@ -161,13 +161,13 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  5. Wait until all tasks have completed (10 - 15min) 
  6. Once the installation workflow has completeled the use cases have installed successfully
 
-## Step 10: Find the Dashboard:
+## **Step 10: Find the Dashboard:**
  In your Dynatrace Tenant: 
  1. Open the Dashboards app
  2. Search for the Dashboard "AWs Automation {your aws account id}"
 
 
-## Unistall
+## **Unistall**
 If you wish to uninstall everything that the Installation created 
 The Cloudfromation template creates a deletion workflow for easy uninstall
  In your Dynatrace Tenant: 
