@@ -1,6 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Dynatrace AWS Use Case Install v5 Templates
 
+
 Metadata:
   Version:
     Number: v0.5.3
@@ -87,8 +88,7 @@ Metadata:
       Dtinstallchaosworkflowssecuritygroup:
         default: Install Chaos Workflows for Security Group Remediation Use Case
       Dtawsconnectionname:
-        default: The name of the aws oidc connection for workflows in Dynatrace
-          (recommended to use the AWS Account ID)
+        default: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
 
 Parameters:
   DTtenant:
@@ -212,11 +212,11 @@ Parameters:
       - 'true'
       - 'false'
 
+
   Dtawsconnectionname:
-    Default: !Sub "${AWS::AccountId}"
-    Description: The name of the aws oidc connection for workflows in Dynatrace
-      (recommended to use the AWS Account ID)
+    Description: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
     Type: String
+    Default: !Ref "AWS::AccountId"
 
 Conditions:
   IsSprint: !Equals
