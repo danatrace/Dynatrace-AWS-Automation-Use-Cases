@@ -181,7 +181,7 @@ Parameters:
       - 'false'
 
   chaosworkflowss3bucket:
-    Default: 'false'
+    Default: 'true'
     Description: Install Chaos Workflows for S3 Bucket Use Case
     Type: String
     AllowedValues:
