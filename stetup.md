@@ -62,7 +62,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 2: Give workflow owner the permissions in the Workflows App:**
- *In your Dynatrace Tenant: *
+ *In your Dynatrace Tenant:*
  1. Go to the workflows app
  2. Click on the "settings" icon in the upper right corner and chose "Authorization settings"
  3. In Authorizations check the checkboxes for:
@@ -75,7 +75,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 3: Allow Outgoing Traffic for workflow tasks**
- *In your Dynatrace Tenant: *
+ *In your Dynatrace Tenant:*
  1. Go to "settings classic"
  2. Click on preferences and "Limit outbound connections" 
  3. In "Limit outbound connections" click on the "Add item" button
@@ -92,7 +92,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## *Step 4: Install Apps from Dynatrace Hub*
- *In your Dynatrace Tenant: *
+ *In your Dynatrace Tenant:*
  1. Search for the "Hub" app
  2. In the Hub App search for "AWS Connector"
  3. Install the "AWS Connector" App
@@ -101,7 +101,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 5: Import and Deploy Workflow**
- *In your Dynatrace Tenant: *
+ *In your Dynatrace Tenant:*
  1. Open the Workflows App
  2. Cilck on the "Upload" button in the upper right corner
  3. Upload the workflow ....yaml from this repository
@@ -135,7 +135,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 7: Create Access Token**
- *In your Dynatrace Tenant: *
+ *In your Dynatrace Tenant:*
  1. Go to **Deploy OneAgent** in the Dynatrace tenant.
  2. Click on **Create Agent for Linux**.
  3. Click on **Create Token** button.
@@ -152,8 +152,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 9: Wait until the Workflow has finished**
-
- In your Dynatrace Tenant: 
+ *In your Dynatrace Tenant:* 
  1. Open the Workflows App
  2. Open the workflow "Install AWS Use Cases {version} (main)""
  3. Click on Executions and click on the latest execution from the dropdown
@@ -162,15 +161,15 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  6. Once the installation workflow has completeled the use cases have installed successfully
 
 ## **Step 10: Find the Dashboard:**
- In your Dynatrace Tenant: 
+ *In your Dynatrace Tenant:* 
  1. Open the Dashboards app
  2. Search for the Dashboard "AWs Automation {your aws account id}"
 
 
 ## **Unistall**
-If you wish to uninstall everything that the Installation created 
-The Cloudfromation template creates a deletion workflow for easy uninstall
- In your Dynatrace Tenant: 
+*If you wish to uninstall everything that the Installation created 
+The Cloudfromation template creates a deletion workflow for easy uninstall*
+ *In your Dynatrace Tenant:* 
  1. Go to "settings classic"
  2. Click on preferences and "Limit outbound connections" 
  3. In "Limit outbound connections" click on the "Add item" button
