@@ -4,7 +4,7 @@
 ## Step 1: Create user permissions needed to run the setup
 #### Go to Dynatrace Account Mangement and create a Dynatrace policy and copy and paste the following permissions into the Policy:
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu
-    
+```   
     //States
     ALLOW state:app-states:delete, state:app-states:read, state:app-states:write, state:user-app-states:read, state:user-app-states:write, state:user-app-states:delete, state-management:user-app-states:delete, state-management:user-app-states:delete-all, state-management:app-states:delete;
     
@@ -39,6 +39,7 @@
 
     // Hyperscaler Authentication
     ALLOW hyperscaler-authentication:aws:authenticate;
+```
 
 #### Create a Dynatrace User Group and add policies and roles
  1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Group Management" from the Dropdown menu
@@ -172,4 +173,4 @@ The Cloudfromation template creates a deletion workflow for easy uninstall
  3. In "Limit outbound connections" click on the "Add item" button
  4. Add the following allowed hosts:
 
-```
+
