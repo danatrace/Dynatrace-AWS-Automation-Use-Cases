@@ -212,7 +212,7 @@ Parameters:
       - "false"
 
   Dtawsconnectionname:
-    Default: ${AWS::AccountId}
+    Default: !Ref "AWS::AccountId"
     Description: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
     Type: String
 
