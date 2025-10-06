@@ -83,9 +83,8 @@ ALLOW hyperscaler-authentication:aws:authenticate;
     * "*.amazonaws.com"
     * "api.dynatrace.com"
     * "sso.dynatrace.com"
-    * "{yourtenantid}.live.dynatrace.com"
-    
- If you are using a sprint tenat (your Dynatrace Tenant link has the word sprint in it) add the follwoing to allowed hosts 
+    * "{yourtenantid}.live.dynatrace.com"    
+ 4. If you are using a sprint tenat (your Dynatrace Tenant link has the word sprint in it) add the follwoing to allowed hosts 
     * "*.amazonaws.com"
     * "api-hardening.internal.dynatracelabs.com"
     * "sso-sprint.dynatracelabs.com"
