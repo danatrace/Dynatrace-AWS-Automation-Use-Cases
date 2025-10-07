@@ -113,7 +113,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  2. In OAuth Clients click on the "create client" button.
  3. In User email fill in the email of the Dynatrace user to become the workflow owner!
  4. Check the following permissions:
- All Account permissions:
+ ### All Account permissions:
  * View users and groups / account-idm-read, iam:users:read, iam:groups:read
  * Manage users and groups / account-idm-write
  * View environments / account-env-read
@@ -123,7 +123,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  * View account audit logs account-audit-logs-read
  * View and manage policies / iam-policies-management, iam:policies:write, iam:policies:read, iam:bindings:write, iam:bindings:read, iam:effective-permissions:read, iam:service-users:use, iam:limits:read, iam:boundaries:read, iam:boundaries:write
  * Manage platform tokens / platform-token:tokens:manage
- All Automation Service permissions:
+ ### All Automation Service permissions:
  * View workflows / automation:workflows:read
  * Create and edit workflows / automation:workflows:write
  * Run workflows / automation:workflows:run
