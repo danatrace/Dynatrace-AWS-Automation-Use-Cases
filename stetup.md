@@ -132,7 +132,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  * View calendars / automation:calendars:read
  * Create and edit calendars / automation:calendars:write
  * Admin permission to manage all workflows and executions / automation:workflows:admin
- **Save the **Client ID** and **Client Secret**.**
+ * **Save the **Client ID** and **Client Secret**.**
 
 ---
 
