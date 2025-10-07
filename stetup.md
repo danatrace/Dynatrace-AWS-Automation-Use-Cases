@@ -109,27 +109,29 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 ---
 
 ## **Step 6: Create OAuth Token**
- *Go to account management and create an OAuth token with the following permissions:*
- * automation:workflows:read
- * automation:workflows:write
- * automation:workflows:run
- * automation:rules:read
- * automation:rules:write
- * automation:calendars:read
- * automation:calendars:write
- * automation:workflows:admin
- * account-idm-read, iam:users:read, iam:groups:read
- * account-idm-write
- * account-env-read
- * account-env-write
- * account-uac-read
- * account-uac-write
- * account-audit-logs-read
- * iam-policies-management, iam:policies:write, iam:policies:read, iam:bindings:write, 
- * iam:bindings:read, iam:effective-permissions:read, iam:service-users:use, 
- * iam:limits:read, iam:boundaries:read, iam:boundaries:write
- * Manage platform tokens
- * platform-token:tokens:manage
+ 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "OAuth Clients" from the Dropdown menu.
+ 2. In OAuth Clients click on the "create client" button.
+ 3. In User email fill in the email of the Dynatrace user to become the workflow owner!
+ 4. Check the following permissions:
+ All Account permissions:
+ * View users and groups / account-idm-read, iam:users:read, iam:groups:read
+ * Manage users and groups / account-idm-write
+ * View environments / account-env-read
+ * Manage environments / account-env-write
+ * View usage and consumption account-uac-read
+ * Manage usage and consumption account-uac-write
+ * View account audit logs account-audit-logs-read
+ * View and manage policies / iam-policies-management, iam:policies:write, iam:policies:read, iam:bindings:write, iam:bindings:read, iam:effective-permissions:read, iam:service-users:use, iam:limits:read, iam:boundaries:read, iam:boundaries:write
+ * Manage platform tokens / platform-token:tokens:manage
+ All Automation Service permissions:
+ * View workflows / automation:workflows:read
+ * Create and edit workflows / automation:workflows:write
+ * Run workflows / automation:workflows:run
+ * View rules / automation:rules:read
+ * Create and edit rules / automation:rules:write
+ * View calendars / automation:calendars:read
+ * Create and edit calendars / automation:calendars:write
+ * Admin permission to manage all workflows and executions / automation:workflows:admin
  **Save the **Client ID** and **Client Secret**.**
 
 ---
