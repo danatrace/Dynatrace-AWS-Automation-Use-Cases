@@ -4,7 +4,7 @@
 
 Welcome to the Dynatrace AWS Automation Use Cases Setup Guide.
 This guide provides a step-by-step walkthrough for automatically installing all required assets to implement a suite of Dynatrace AWS remediation use cases. It includes chaos testing workflows to simulate problem scenarios, infrastructure to support those tests, and a robust enterprise-grade permission model built on Dynatrace Policies and Groups.
-The setup must be performed by the designated Dynatrace user who will act as the Workflow Owner. Please follow each step carefully—skipping any part may result in an incomplete setup and require manual uninstall steps.
+The setup must be performed by the designated Dynatrace user who will act as the Workflow Owner. Please follow each step carefully, as skipping any part may result in an incomplete setup and require manual uninstall steps.
 
 ### **Step 1: Create user permissions needed to run the setup**
 #### *Create a Dynatrace Policy:*
