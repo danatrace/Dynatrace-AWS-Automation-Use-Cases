@@ -47,6 +47,10 @@ ALLOW deployment:activegates.network-zones:write, deployment:activegates.groups:
 
 // Hyperscaler Authentication
 ALLOW hyperscaler-authentication:aws:authenticate;
+
+// copilot
+ALLOW davis-copilot:document-search:execute;
+ALLOW davis-copilot:conversations:execute;
 ```
 
 #### *Create a Dynatrace User Group and add policies and roles:*
