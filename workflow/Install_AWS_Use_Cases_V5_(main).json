@@ -5,7 +5,7 @@
     "get-users-id": {
       "name": "get-users-id",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users\n{% else %}\nhttps://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users{% else %}https://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users{% endif %}",
         "method": "GET",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token\").token }}"
@@ -93,7 +93,7 @@
     "add-user-to-groups": {
       "name": "add-user-to-groups",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{input()[\"owner_email\"]}}\n{% else %}\nhttps://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{input()[\"owner_email\"]}}\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{input()[\"owner_email\"]}}{% else %}https://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{input()[\"owner_email\"]}}{% endif %}",
         "method": "POST",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token-2\").token }}"
@@ -205,7 +205,7 @@
     "create-service-user": {
       "name": "create-service-user",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/service-users\n{% else %}\nhttps://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/service-users\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/service-users{% else %}https://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/service-users{% endif %}",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
@@ -396,7 +396,7 @@
     "create-workflow-groups": {
       "name": "create-workflow-groups",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/groups\n{% else %}\nhttps://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/groups\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/groups{% else %}https://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/groups{% endif %}",
         "method": "POST",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token\").token }}"
@@ -458,7 +458,7 @@
     "add-policies-to-group-wf-user": {
       "name": "add-policies-to-group-wf-user",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[2].json[0].uuid}}\n{% else %}\nhttps://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[2].json[0].uuid}}\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[2].json[0].uuid}}{% else %}https://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[2].json[0].uuid}}{% endif %}",
         "method": "PUT",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token\").token }}"
@@ -492,7 +492,7 @@
     "add-policies-to-group-wf-admin": {
       "name": "add-policies-to-group-wf-admin",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[1].json[0].uuid}}\n{% else %}\nhttps://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[1].json[0].uuid}}\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[1].json[0].uuid}}{% else %}https://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[1].json[0].uuid}}{% endif %}",
         "method": "PUT",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token\").token }}"
@@ -555,7 +555,7 @@
     "add-policies-to-group-wf-builder": {
       "name": "add-policies-to-group-wf-builder",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[0].json[0].uuid}}\n{% else %}\nhttps://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[0].json[0].uuid}}\n{% endif %}\n\n\n",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[0].json[0].uuid}}{% else %}https://api.dynatrace.com/iam/v1/repo/account/{{input()[\"dtaccountuid\"] }}/bindings/groups/{{result(\"create-workflow-groups\")[0].json[0].uuid}}{% endif %}",
         "method": "PUT",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token\").token }}"
@@ -589,7 +589,7 @@
     "add-policies-to-service-user-group": {
       "name": "add-policies-to-service-user-group",
       "input": {
-        "url": "{% if 'sprint' in environment().url %}\nhttps://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{result(\"create-service-user\").json.email}}\n{% else %}\nhttps://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{result(\"create-service-user\").json.email}}\n{% endif %}",
+        "url": "{% if 'sprint' in environment().url %}https://api-hardening.internal.dynatracelabs.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{result(\"create-service-user\").json.email}}{% else %}https://api.dynatrace.com/iam/v1/accounts/{{input()[\"dtaccountuid\"] }}/users/{{result(\"create-service-user\").json.email}}{% endif %}",
         "method": "POST",
         "headers": {
           "authorization": "Bearer {{ result(\"get-dt-oauth-token-2\").token }}"
