@@ -145,7 +145,13 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## **Step 8: Create the Cloudformation template**
+## **Step 8: Get Dynatrace Account id**
+ 1. Go to "Dynatrace Account Management", click on "Support Information" paste the content into a textfile.
+ 2. Copy the Account id (Value accountUuid in Json) and save it.
+
+---
+
+## **Step 9: Create the Cloudformation template**
  1. Go to the **AWS Management Console** and open **CloudFormation**.
  2. Upload the CloudFormation template ....yaml from this repository
  3. Fill in the parameters.
@@ -153,7 +159,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 
 ---
 
-## **Step 9: Wait until the Workflow has finished**
+## **Step 10: Wait until the Workflow has finished**
  *In your Dynatrace Tenant:* 
  1. Open the Workflows App
  2. Open the workflow "Install AWS Use Cases {version} (main)""
@@ -162,7 +168,7 @@ ALLOW hyperscaler-authentication:aws:authenticate;
  5. Wait until all tasks have completed (10 - 15min) 
  6. Once the installation workflow has completeled the use cases have installed successfully
 
-## **Step 10: Find the Dashboard:**
+## **Step 11: Find the Dashboard:**
  *In your Dynatrace Tenant:* 
  1. Open the Dashboards app
  2. Search for the Dashboard "AWs Automation {your aws account id}"
