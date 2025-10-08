@@ -1,5 +1,5 @@
 
-## Dynatrace AWS Automation Use Cases setup step by step guide 
+## Dynatrace AWS Automation Use Cases setup step by step guide 🤖
 ➡️ [Link to Video Step by Step Guide](https://dynatrace-my.sharepoint.com/:v:/r/personal/daniel_braaf_dynatrace_com/Documents/aws/aws_use_case_setup.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HdnZR3)
 
 Welcome to the Dynatrace AWS Automation Use Cases Setup Guide.
