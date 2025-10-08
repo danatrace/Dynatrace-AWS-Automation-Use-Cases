@@ -1,5 +1,6 @@
 
-## Dynatrace AWS Automation Use Cases setup step by step guide ➡️ [Link to Video Step by Step Guice](https://dynatrace-my.sharepoint.com/:v:/r/personal/daniel_braaf_dynatrace_com/Documents/aws/aws_use_case_setup.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HdnZR3)
+## Dynatrace AWS Automation Use Cases setup step by step guide 
+➡️ [Link to Video Step by Step Guice](https://dynatrace-my.sharepoint.com/:v:/r/personal/daniel_braaf_dynatrace_com/Documents/aws/aws_use_case_setup.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HdnZR3)
 ### **Step 1: Create user permissions needed to run the setup**
 #### *Create a Dynatrace Policy:*
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu.
