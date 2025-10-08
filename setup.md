@@ -1,6 +1,6 @@
 
 ## Dynatrace AWS Automation Use Cases setup step by step guide 🤖
-➡️ [Link to Video Step by Step Guide](https://dynatrace-my.sharepoint.com/:v:/r/personal/daniel_braaf_dynatrace_com/Documents/aws/aws_use_case_setup.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HdnZR3)
+🎞️ ➡️ [Link to Video Step by Step Guide](https://dynatrace-my.sharepoint.com/:v:/r/personal/daniel_braaf_dynatrace_com/Documents/aws/aws_use_case_setup.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HdnZR3)
 
 Welcome to the Dynatrace AWS Automation Use Cases Setup Guide.
 This guide provides a step-by-step walkthrough for automatically installing all required assets to implement a suite of Dynatrace AWS remediation use cases. It includes chaos testing workflows to simulate problem scenarios, infrastructure to support those tests, and a robust enterprise-grade permission model built on Dynatrace Policies and Groups.
