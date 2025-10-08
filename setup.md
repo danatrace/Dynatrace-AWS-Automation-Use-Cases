@@ -178,9 +178,9 @@ ALLOW hyperscaler-authentication:aws:authenticate;
 *If you wish to uninstall everything that the Installation created 
 The Cloudfromation template creates a deletion workflow for easy uninstall*
  *In your Dynatrace Tenant:* 
- 1. Go to "settings classic"
- 2. Click on preferences and "Limit outbound connections" 
- 3. In "Limit outbound connections" click on the "Add item" button
- 4. Add the following allowed hosts:
+ 1. Go to the workflows app
+ 2. Search for "Delete AWS Usecases"
+ 3. Trigger the workflow manually
+ 4. All created assets are deleted by the workflow
 
 
