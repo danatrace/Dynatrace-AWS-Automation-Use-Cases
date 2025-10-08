@@ -8,4 +8,4 @@ This repository contains a collection of Dynatrace AWS remediation use cases:
 - Open incoming Ports to 0.0.0.0/0 Security group remediation
 
 Follow the setup guide for easy automated install -> [Setup Guide](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/edit/main/setup.md)
-After install have a look at the First Steps guide - > 
+After install have a look at the First Steps guide - > [First Steps](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/edit/main/firststeps.md)
