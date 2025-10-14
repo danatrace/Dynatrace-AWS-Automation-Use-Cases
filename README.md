@@ -8,4 +8,4 @@ This repository contains a collection of Dynatrace AWS remediation use cases:
 - Resource Saturation remediation
 
 Follow the setup guide for easy automated install ➡️ [Setup Guide](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/setup.md) <br>
-After install have a look at the First Steps guide ➡️ [First Steps](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/friststeps.md)
+After install have a look at the Activating use cases guide ➡️ [Activating use cases](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/friststeps.md)
