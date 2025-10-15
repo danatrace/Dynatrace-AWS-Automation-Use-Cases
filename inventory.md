@@ -20,15 +20,14 @@ The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to
   - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
     
 - **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
-  **Permissions that will be created for this role:**  
+  **I am policies that will be attached to this role:**  
+    - arn:aws:iam::aws:policy/AmazonEC2FullAccess (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances)
+    - arn:aws:iam::aws:policy/AmazonS3FullAccess (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files)
+    - arn:aws:iam::aws:policy/AmazonSSMFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)
+    - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)
+    - arn:aws:iam::aws:policy/IAMFullAccess (Needed to give Dynatrace Actions the permissions to create/delete IAM Roles)
 
-    - arn:aws:iam::aws:policy/AmazonEC2FullAccess
-    - arn:aws:iam::aws:policy/AmazonS3FullAccess
-    - arn:aws:iam::aws:policy/AmazonSSMFullAccess
-    - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
-    - arn:aws:iam::aws:policy/IAMFullAccess
-
-- **IAM Policy:** `dynatrace_workflow_list_regions`  
+- **Custom IAM Policy that will be created and attached to the role:** `dynatrace_workflow_list_regions`  
 Attached to allow listing AWS regions for dropdown menus in AWS Actions.
 
 ---
