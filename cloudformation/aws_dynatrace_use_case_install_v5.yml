@@ -271,15 +271,11 @@ Resources:
 
       ManagedPolicyArns:
         - !Ref MyIAMPolicy
-        - arn:aws:iam::aws:policy/AdministratorAccess
         - arn:aws:iam::aws:policy/AmazonEC2FullAccess
-        - arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess
-        - arn:aws:iam::aws:policy/AmazonECS_FullAccess
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
         - arn:aws:iam::aws:policy/AmazonSSMFullAccess
         - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
-        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
-        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
+        - arn:aws:iam::aws:policy/IAMFullAccess
   DynwfCreateCloudFormationStack:
     Type: AWS::SSM::Document
     Properties:
