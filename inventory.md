@@ -101,7 +101,7 @@ The Polices are split up to allow for easy adding and removing of specific permi
 
 
 ### Groups
-- `workflow-user` (The Purpose of the Workflow user is to run existing workflows that were created by the Workflow Builder. The perfect role for someone that consumes automation, but does not build automations.)
+- <p> `workflow-user` <br> (The Purpose of the Workflow user is to run existing workflows that were created by the Workflow Builder. The perfect role for someone that consumes automation, but does not build automations.) </p>
    - Can access to the workflows app
    - Can see workflows, workflow executions and can see,run,cancel and restart workflows that are
      - public (shared with all users)
@@ -109,14 +109,14 @@ The Polices are split up to allow for easy adding and removing of specific permi
    - Can not see or run private workflows
    - Can not write (create or change) workflows
 
-- `workflow-builder` (The Purpose of the Workflow builder is to create, modify and run workflows. They have the expertise to create automation services that can be triggered automatically and manually by the Workflow-User)
+- <p> `workflow-builder` <br> (The Purpose of the Workflow builder is to create, modify and run workflows. They have the expertise to create automation services that can be triggered automatically and manually by the Workflow-User) </p>
    - Has the same access as the Workflow User
    - Can write/create new workflows and modify existing ones
    - Can share workflows with a usergroup
    - Can share workflows with all users (set public)
    - Can set a service user as Actor
 
-- `workflow-admin` (The Purpose of the Workflow Admin is to make sure workflows are built properly and that unused workflows dont create unnecesary cost)
+- <p>  `workflow-admin` <br> (The Purpose of the Workflow Admin is to make sure workflows are built properly and that unused workflows dont create unnecesary cost) </p>
    - Has the same access as the Workflow User and Workflow Builder
    - Has Access to all Workflows!
 
