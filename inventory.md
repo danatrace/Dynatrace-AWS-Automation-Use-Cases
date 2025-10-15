@@ -20,13 +20,13 @@ The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to
   - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
     
 - **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
-  **Permissions:**  
+  **Permissions that will be created for this role:**  
 
-arn:aws:iam::aws:policy/AmazonEC2FullAccess
-arn:aws:iam::aws:policy/AmazonS3FullAccess
-arn:aws:iam::aws:policy/AmazonSSMFullAccess
-arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
-arn:aws:iam::aws:policy/IAMFullAccess
+    - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+    - arn:aws:iam::aws:policy/AmazonS3FullAccess
+    - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+    - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+    - arn:aws:iam::aws:policy/IAMFullAccess
 
 - **IAM Policy:** `dynatrace_workflow_list_regions`  
 Attached to allow listing AWS regions for dropdown menus in AWS Actions.
