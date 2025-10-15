@@ -72,28 +72,32 @@ The Bucket and content will be deleted after install.
 
 ---
 
-## Dynatrace Configuration
+## Dynatrace Assets created
 
-### Policies
- 
-workflows-read-spans
-workflows-write-logs
-workflows-read-events
-workflows-run-general
-workflows-read-general
-workflows-read-metrics
-workflows-service-user
-workflows-write-events
-workflows-read-entities
-workflows-run-functions
-workflows-write-general
-workflows-write-metrics
-workflows-read-bizevents
-workflows-run-send-emails
-workflows-smartscape-read
-workflows-run-readsettings
-workflows-read-allworkflowactions
-workflows-read-aws-action-connections
+### Workflow Policies
+These Policies are created so they can be attached to the Groups and Service users and create an Enterprise grade permissions system for Dynatrace Workflows.
+
+- workflows-admin  (Grants permission to become workflow admin which gives read, write and execute access to all workflows in the tenant )
+- workflows-read-logs (Grants permission to read logs from workflow tasks)
+- workflows-read-spans (Grants permission to read records from the spans-table from workflow tasks)
+- workflows-write-logs (Grants permission to write logs from workflow tasks)
+- workflows-read-events (Grants permission to read records from the events-table. Needed for Event Triggers, DQL and Javascript Tasks that read events!)
+- workflows-run-general (Grants permission to run workflows)
+- workflows-read-general (Grants permission to the workflows app, Read permissions for workflows of which the user has ownership (through user or group) or workflows that are shared with them! Read Access to General workflow Actions Execute DQL Query, Http Request and Run Javascript.
+Also Allow access to read Calendars, Rules and access to Automation and System Events. Allows read access to storage buckets (events, logs and metrics need separate permissions))
+- workflows-read-metrics (Grants permission to read metrics (timeseries) from workflow tasks)
+- workflows-service-user (Gants permission to set service user as actor in workflows)
+- workflows-write-events (Grants permission to write/ingest events with workflow tasks)
+- workflows-read-entities (Grants permission to read records from entities from workfow tasks)
+- workflows-run-functions (Grants permissions to run javascript tasks in workflows)
+- workflows-write-general (Grants permission to save workflows, calendars and rules)
+- workflows-write-metrics (Grants permission to write metrics from workflow tasks)
+- workflows-read-bizevents (Grants permission to read records from the bizevents-table from workflow tasks)
+- workflows-run-send-emails (Grants permission to send emails from tasks)
+- workflows-smartscape-read (Grants permission to query smarscape from workflow tasks)
+- workflows-run-readsettings (Grants access to settings from workflow tasks)
+- workflows-read-allworkflowactions (Grants permission to additional workflow actions like aws, github etc.)
+- workflows-read-aws-action-connections (Grants permission to set AWS Connections in Workflow Actions)
 
 
 ### Groups
