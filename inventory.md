@@ -21,7 +21,7 @@ The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to
     
 - **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
   **I am policies that will be attached to this role:**  
-    - arn:aws:iam::aws:policy/AmazonEC2FullAccess (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances)
+    - arn:aws:iam::aws:policy/AmazonEC2FullAccess <p> (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances) </p>
     - arn:aws:iam::aws:policy/AmazonS3FullAccess (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files)
     - arn:aws:iam::aws:policy/AmazonSSMFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)
     - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)
