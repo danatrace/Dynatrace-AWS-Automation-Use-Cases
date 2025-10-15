@@ -21,11 +21,11 @@ The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to
     
 - **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
   **I am policies that will be attached to this role:**  
-    -  <p> arn:aws:iam::aws:policy/AmazonEC2FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances) </p>
-    - arn:aws:iam::aws:policy/AmazonS3FullAccess (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files)
-    - arn:aws:iam::aws:policy/AmazonSSMFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)
-    - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)
-    - arn:aws:iam::aws:policy/IAMFullAccess (Needed to give Dynatrace Actions the permissions to create/delete IAM Roles)
+    - <p> arn:aws:iam::aws:policy/AmazonEC2FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances) </p>
+    - <p> arn:aws:iam::aws:policy/AmazonS3FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files) </p>
+    - <p> arn:aws:iam::aws:policy/AmazonSSMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)</p>
+    - <p> arn:aws:iam::aws:policy/AWSCloudFormationFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)</p>
+    - <p> arn:aws:iam::aws:policy/IAMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete IAM Roles)</p>
 
 - **Custom IAM Policy that will be created and attached to the role:** `dynatrace_workflow_list_regions`  
 Attached to allow listing AWS regions for dropdown menus in AWS Actions.
