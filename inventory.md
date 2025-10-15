@@ -134,12 +134,12 @@ The Setup creates a Dashboards that is useful to Observe and test the AWS use ca
 - Name: Automation use cases
 
 ### OIDC Connection
-The Setup also creates AWS OIDC connection settings in Dynatrace
+The Setup also creates the AWS OIDC connection settings in Dynatrace
 - Name: The Name that was set in the Cloudformation Stack creation (ideally the Acccount id)
 
 ---
 
-### Subworkflows (Original Names)
+### Subworkflows (Automation Templates Used by Install, Remediation and Chaos Workflows)
 - `subworkflow - dynatrace ingest custom alert`
 - `subworkflow - dynatrace get all problem data`
 - `subworkflow - aws create cloudformation stack`
@@ -177,7 +177,7 @@ The Setup also creates AWS OIDC connection settings in Dynatrace
 
 ---
 
-### Anomaly Detection
+### Davis Anomaly Detections
 - Low Storage  
 - Process CPU saturation  
 
