@@ -84,8 +84,7 @@ The Polices are split up to allow for easy adding and removing of specific permi
 - <p> workflows-write-logs <br> (Grants permission to write logs from workflow tasks) </p>
 - <p> workflows-read-events <br> (Grants permission to read records from the events-table. Needed for Event Triggers, DQL and Javascript Tasks that read events!) </p>
 - <p> workflows-run-general <br> (Grants permission to run workflows) </p>
-- <p> workflows-read-general <br> (Grants permission to the workflows app, Read permissions for workflows of which the user has ownership (through user or group) or workflows that are shared with them! Read Access to General workflow Actions Execute DQL Query, Http Request and Run Javascript.
-Also Allow access to read Calendars, Rules and access to Automation and System Events. Allows read access to storage buckets (events, logs and metrics need separate permissions)) </p>
+- <p> workflows-read-general <br> (Grants permission to the workflows app, Read permissions for workflows of which the user has ownership (through user or group) or workflows that are shared with them! Read Access to General workflow Actions Execute DQL Query, Http Request and Run Javascript.  <br> Also Allow access to read Calendars, Rules and access to Automation and System Events. Allows read access to storage buckets (events, logs and metrics need separate permissions)) </p>
 - <p> workflows-read-metrics <br> (Grants permission to read metrics (timeseries) from workflow tasks) </p>
 - <p> workflows-service-user <br> (Gants permission to set service user as actor in workflows) </p>
 - <p> workflows-write-events <br> (Grants permission to write/ingest events with workflow tasks) </p>
