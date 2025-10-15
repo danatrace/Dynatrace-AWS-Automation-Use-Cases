@@ -9,4 +9,4 @@ This repository contains a collection of Dynatrace AWS autonomous cloud operatio
 
 Follow the setup guide for easy automated install ➡️ [Setup Guide](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/setup.md) <br>
 Inventory of what the setup creates in your environments ➡️ [Inventory](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/inventory.md) <br>
-After install have a look at the Activating use cases guide ➡️ [Activating use cases](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/friststeps.md)
+First steps after install have a look at the activating use cases guide ➡️ [Activating use cases after setup](https://github.com/danatrace/Dynatrace-AWS-Automation-Use-Cases/blob/main/friststeps.md)
