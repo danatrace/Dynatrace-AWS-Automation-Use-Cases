@@ -46,18 +46,29 @@ Attached to allow listing AWS regions for dropdown menus in AWS Actions.
 ---
 
 ### EC2 Instances
-- One EC2 instance to send API command and trigger Dynatrace workflow (stopped after installation).  
-- One EC2 instance to test **low disk space**.  
-- One EC2 instance to test **CPU saturation**.
+- One EC2 instance to send API command and trigger Dynatrace workflow (will automatically be stopped after installation, can be terminated manually).  
+- One EC2 instance to test **low disk space**. (Instance on which the chaos workflow will create the Low Disk Space problem to remediate )
+  - Name Tag: Dynatrace-SSM-Action-Demo_{your Aws Accountid}
+  - Problem Tag: problem: disk_{your Aws Accountid}
+  - Security group does not have any inbound access to keep it 100% secure
+  - Region: `us-east-1`  
+- One EC2 instance to test **CPU saturation**. (Instance on which the chaos workflow will create the rocess CPU Saturation problem to remediate )
+  - Name Tag: Dynatrace-SSM-Action-Demo_{your Aws Accountid}
+  - Problem Tag: problem: cpu_{your Aws Accountid}
+  - Security group does not have any inbound access to keep it 100% secure
+  - Region: `us-east-1`  
 
 ---
 
 ### Temporary S3 Buckets
-- Bucket: `dynatraceinstall52e2cf3c2fa54905a211165e4aa331f5`  
+The Setup creates a Temporary S3 bucket to upload Cloudformation yaml files and pass them on to Cloudformation Create Stack.
+The Bucket and content will be deleted after install.
+- Bucket: `dynatraceinstall{execution id of th install workflow}`
+- Permissions: No Public Access
 - Region: `us-east-1`  
 - Files:  
-- `cloudformation_create_role_for_ssm_execution_ec2.yaml`  
-- `create_remediation_demo_instances.yaml`
+- `cloudformation_create_role_for_ssm_execution_ec2.yaml`  (Creates Instance Profile with AmazonSSMManagedInstanceCore attached for SSM Execution permissions on EC2 Instances)
+- `create_remediation_demo_instances.yaml` (Creates the 2 Test Ec2 Instances for Low Diskspace and Process Cpu Saturation testing)
 
 ---
 
