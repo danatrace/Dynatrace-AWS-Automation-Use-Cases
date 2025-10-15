@@ -323,61 +323,6 @@ Resources:
             isEnd: true
             inputs:
               StackName: '{{ stackname }}'
-  Dynwflocalextendebsvolume:
-    Type: AWS::SSM::Document
-    Properties:
-      Name: Dynwf-local-extend-ebs-volume
-      DocumentType: Automation
-      Content:
-        schemaVersion: '0.3'
-        description: This is a Cloudformation Template used to trigger local disk
-          partition resize from Dynatrace Workflows
-        parameters:
-          instanceids:
-            type: StringList
-          MountPoint:
-            type: String
-        mainSteps:
-          - name: Loop
-            action: aws:loop
-            isEnd: true
-            inputs:
-              MaxIterations: 10
-              LoopCondition:
-                And:
-                  - Not:
-                      Variable: '{{ RunCommandOnInstances.ResponseCode }}'
-                      NumericEquals: 0
-                  - Not:
-                      Variable: '{{ RunCommandOnInstances.Output }}'
-                      Contains: 'rm: cannot remove ''/home/ubuntu/large_file.log'''
-              Steps:
-                - name: RunCommandOnInstances
-                  action: aws:runCommand
-                  maxAttempts: 1
-                  timeoutSeconds: 600
-                  isEnd: true
-                  onFailure: Continue
-                  inputs:
-                    DocumentName: AWS-RunShellScript
-                    Parameters:
-                      commands:
-                        - partition=`findmnt -T '{{ MountPoint }}' | awk
-                          '{{print $2}}' | sed -n 2p`
-                        - echo $partition
-                        - deviceName=`lsblk -npo pkname $partition`
-                        - echo $deviceName
-                        - partitionNumber=`echo ${partition#$deviceName} | cut
-                          -c2`
-                        - echo $partitionNumber
-                        - sudo growpart $deviceName $partitionNumber
-                        - sudo xfs_growfs -d / || true
-                        - sudo resize2fs $partition || true
-                    InstanceIds: '{{ instanceids }}'
-                  outputs:
-                    - Type: String
-                      Selector: $.Payload.output
-                      Name: error
   EC2Instance2:
     Type: AWS::EC2::Instance
     DependsOn: MyOIDCProvider
