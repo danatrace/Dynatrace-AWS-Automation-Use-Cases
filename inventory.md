@@ -7,7 +7,7 @@ This is a list of assets that the setup creates:
 
 ## AWS Assets Created by the Setup
 
-### OIDC Connection for Workflows
+### AWS OIDC Connection for Workflows
 The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to connect to AWS Accounts.
 
 - **Name of OIDC Connection that will be created :**  
