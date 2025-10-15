@@ -3,19 +3,23 @@
 This setup creates AWS resources and Dynatrace configurations to enable automated workflows for remediation,
 chaos testing, and anomaly detection.
 
-This is a list of Assets that the setup creates:
+This is a list of assets that the setup creates:
 
-## AWS Configuration
+## AWS Assets Created by the Setup
 
 ### OIDC Connection for Workflows
-- **Connection Name:**  
-  - `https://token.dynatrace.com`  
-  - `https://hard.token.dynatracelabs.com`
+The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to connect to AWS Accounts.
+
+- **Name of OIDC Connection that will be created :**  
+  - `https://token.dynatrace.com`  (If setup is done for a Dynatrace production tenant)
+  - `https://hard.token.dynatracelabs.com` (If setup is done for a Dynatrace sprint tenant) (For Dynatrace Internal use
+    
 - **References:**  
   - [Dynatrace AWS Workflows Setup](https://docs.dynatrace.com/docs/analyze-explore-automate/workflows)
   - [AWS OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
   - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
-- **Role:** `dynatrace_oidc_conn_for_workflows`  
+    
+- **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
   **Permissions:**  
 
 arn:aws:iam::aws:policy/AmazonEC2FullAccess
