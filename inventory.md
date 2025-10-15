@@ -101,7 +101,7 @@ The Polices are split up to allow for easy adding and removing of specific permi
 
 
 ### Groups
-- <p> `workflow-user` <br> (The Purpose of the Workflow user is to run existing workflows that were created by the Workflow Builder. The perfect role for someone that consumes automation, but does not build automations.) </p>
+- <p> workflow-user <br> (The Purpose of the Workflow user is to run existing workflows that were created by the Workflow Builder. The perfect role for someone that consumes automation, but does not build automations.) </p>
    - Can access to the workflows app
    - Can see workflows, workflow executions and can see,run,cancel and restart workflows that are
      - public (shared with all users)
@@ -109,14 +109,14 @@ The Polices are split up to allow for easy adding and removing of specific permi
    - Can not see or run private workflows
    - Can not write (create or change) workflows
 
-- <p> `workflow-builder` <br> (The Purpose of the Workflow builder is to create, modify and run workflows. They have the expertise to create automation services that can be triggered automatically and manually by the Workflow-User) </p>
+- <p> workflow-builder <br> (The Purpose of the Workflow builder is to create, modify and run workflows. They have the expertise to create automation services that can be triggered automatically and manually by the Workflow-User) </p>
    - Has the same access as the Workflow User
    - Can write/create new workflows and modify existing ones
    - Can share workflows with a usergroup
    - Can share workflows with all users (set public)
    - Can set a service user as Actor
 
-- <p>  `workflow-admin` <br> (The Purpose of the Workflow Admin is to make sure workflows are built properly and that unused workflows dont create unnecesary cost) </p>
+- <p>  workflow-admin <br> (The Purpose of the Workflow Admin is to make sure workflows are built properly and that unused workflows dont create unnecesary cost) </p>
    - Has the same access as the Workflow User and Workflow Builder
    - Has Access to all Workflows!
 
@@ -124,13 +124,18 @@ The Polices are split up to allow for easy adding and removing of specific permi
 
 
 ### Service User
-- `workflow-service-user`
+- <p> workflow-service-user <br> (The Purpose of the workflow-service-user is to restrict dynatrace permissions to workflows executions, by setting the service user as actor of workflows. For example if you want to give a user access to bizevents in workflows but not across the entire dynatrace tenant
+  setting the service user as actor and allowing the user to execute workflows with that actor, restricts the given permissions to workflow executions only! ) </p>
+- **References:**  
+  - [Dynatrace Service User](https://docs.dynatrace.com/docs/manage/identity-access-management/user-and-group-management/access-service-users)
 
 ### Dashboard
-- Automation use cases
+The Setup creates a Dashboards that is useful to Observe and test the AWS use cases
+- Name: Automation use cases
 
 ### OIDC Connection
-- Configured for workflows
+The Setup also creates AWS OIDC connection settings in Dynatrace
+- Name: The Name that was set in the Cloudformation Stack creation (ideally the Acccount id)
 
 ---
 
