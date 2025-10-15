@@ -1,6 +1,8 @@
 # AWS Use Case Setup Inventory
 
-This setup creates AWS resources and Dynatrace configurations to enable automated workflows for remediation, chaos testing, and anomaly detection.
+This setup creates AWS resources and Dynatrace configurations to enable automated workflows for remediation,
+chaos testing, and anomaly detection.
+
 This is a list of Assets that the setup creates:
 
 ## AWS Configuration
