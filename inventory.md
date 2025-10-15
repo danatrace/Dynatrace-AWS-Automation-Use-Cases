@@ -32,12 +32,16 @@ Attached to allow listing AWS regions for dropdown menus in AWS Actions.
 
 ---
 
-### Systems Manager
+### AWS Systems Manager
 - **Custom Documents/Runbooks:**  
-- `Dynwf-CreateCloudFormationStack`  
-- `Dynwf-DeleteCloudFormationStack`
+- `Dynwf-CreateCloudFormationStack`  <br> (Needed for Dynatrace Actions to perform Create Cloudformation Stack using SSM Document) </p>
+- `Dynwf-DeleteCloudFormationStack` <br> (Needed for Dynatrace Actions to perform Delete Cloudformation Stack using SSM Document)
 - **IAM Instance Profile:**  
-- Role: `AmazonSSMManagedInstanceCore`
+- Role: `AmazonSSMManagedInstanceCore` (Instance Profile that will be attached to the test Ec2 Instances to allow SSM Agent access)
+- **References:**  
+  - [Info about AmazonSSMManagedInstanceCore Instance Profile](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html)
+  - [AWS Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html)
+  - [Link to Systems Manger Documents Overview in your Management Console](https://us-east-1.console.aws.amazon.com/systems-manager/documents?region=us-east-1#)
 
 ---
 
