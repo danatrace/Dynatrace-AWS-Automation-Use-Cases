@@ -10,8 +10,9 @@ This setup creates AWS resources and Dynatrace configurations to enable automate
   - `https://token.dynatrace.com`  
   - `https://hard.token.dynatracelabs.com`
 - **References:**  
-  - [Dynatrace AWS Workflows Setup](https://docs.dynatrace.com/docs/analyze-explore-automate/workflows  
-  - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers
+  - [Dynatrace AWS Workflows Setup](https://docs.dynatrace.com/docs/analyze-explore-automate/workflows)
+  - [AWS OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+  - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
 - **Role:** `dynatrace_oidc_conn_for_workflows`  
   **Permissions:**  
 
