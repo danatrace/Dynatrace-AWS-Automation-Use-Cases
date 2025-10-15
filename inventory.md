@@ -1,51 +1,7 @@
 # AWS Use Case Setup Inventory
 
-https://img.shields.io/badge/AWS-Cloud-orange?logo=amazon-aws
-https://img.shields.io/badge/Dynatrace-Automation-blue?logo=dynatrace
-![tps://img.shields.io/badge/license-MIT-green
-![Status](https://img.shields.io/badge/status-InProgresshis repository documents the setup of AWS use cases integrated with **Dynatrace Workflows** for automation and remediation.
-
----
-
-## Table of Contents
-- [Overview](#overview)
-ites
-- #aws-configuration
-  - [OIDC Connection for Workflows](#oidc-connection-for-workflows)
-tances
-  - #temporary-s3-buckets
-- #dynatrace-configuration
-  - #policies
-  - [Groups](#groups)
-ce-user
-  - #dashboard
-  - [OIDC Connection
-  - #subworkflows-original-names
-  - [Workflows
-  - [Chaos Workflows](#chaos-workflows)
-ion
-- #setup-instructions
-- #references
-
----
-
 ## Overview
 This setup creates AWS resources and Dynatrace configurations to enable automated workflows for remediation, chaos testing, and anomaly detection.
-
----
-
-## Prerequisites
-- **AWS Account** with admin permissions.
-- **Dynatrace SaaS Tenant** with Workflow Automation enabled.
-- Installed **AWS CLI** and **Dynatrace CLI**.
-- IAM permissions for:
-  - EC2
-  - S3
-  - Systems Manager
-  - CloudFormation
-  - IAM
-
----
 
 ## AWS Configuration
 
