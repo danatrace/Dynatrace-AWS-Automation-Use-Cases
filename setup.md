@@ -97,7 +97,7 @@ ALLOW davis-copilot:conversations:execute;
     * "*.amazonaws.com"
     * "api-hardening.internal.dynatracelabs.com"
     * "sso-sprint.dynatracelabs.com"
-    * "{yourtenantid}.sprint.dynatrace.com"
+    * "{yourtenantid}.sprint.dynatracelabs.com"
 ---
 
 ## *Step 4: Install Apps from Dynatrace Hub*
@@ -192,4 +192,4 @@ The Cloudfromation template creates a deletion workflow for easy uninstall*
  3. Trigger the workflow manually
  4. All created assets are deleted by the workflow
 
-
+First steps after install have a look at the activating use cases guide ➡️ Activating use cases after setup
