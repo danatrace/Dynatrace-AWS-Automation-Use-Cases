@@ -10,8 +10,9 @@ Metadata:
 
     ParameterGroups:
       - Label:
-          default: Enter Dynatrace OIDC Connection Information
+          default: Create AWS Dynatrace OIDC Connection
         Parameters:
+          - InstallOIDCconnection
           - Dtawsconnectionname
 
       - Label:
@@ -80,12 +81,14 @@ Metadata:
       DTaccesstoken:
         default: Dynatrace Agent Access token, needed to install OneAgent on Ec2
           instance for Process Cpu remediation use case
+      InstallOIDCconnection:
+        default: Create Dynatrace OIDC connection
       Dtinstallsecuritygroupusecase:
         default: Install Security Group Remediation Use Case
       Dtinstallchaosworkflowssecuritygroup:
         default: Install Chaos Workflows for Security Group Remediation Use Case
       Dtawsconnectionname:
-        default: The name of the dynatrace aws oidc connection for workflows (needs to exist before triggering)
+        default: The name of the aws oidc connection for workflows in Dynatrace (recommended to use the AWS Account ID)
 
 Parameters:
   DTtenant:
@@ -185,6 +188,15 @@ Parameters:
       - 'true'
       - 'false'
 
+  InstallOIDCconnection:
+    Default: 'true'
+    Description: Create Dynatrace OIDC connection settings for AWS Account (set to
+      false if already created)
+    Type: String
+    AllowedValues:
+      - 'true'
+      - 'false'
+
   Dtinstallsecuritygroupusecase:
     Default: 'true'
     Description: Install Security Group Remediation Use Case
@@ -217,6 +229,53 @@ Conditions:
     - sprint
 
 Resources:
+  MyOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: !If
+        - IsSprint
+        - https://hard.token.dynatracelabs.com
+        - https://token.dynatrace.com
+
+      ClientIdList:
+        - !Sub ${ DTtenant }/app-id/dynatrace.aws.connector
+
+  MyIAMPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: dynatrace_workflow_list_regions
+      Description: Policy for OIDC-assumed role.
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - account:ListRegions
+            Resource: '*'
+  MyOIDCProviderRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: dynatrace_oidc_conn_for_workflows
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !GetAtt MyOIDCProvider.Arn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals: !If
+                - IsSprint
+                - hard.token.dynatracelabs.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+                - token.dynatrace.com:sub: !Sub dtid:connection/${ Dtawsconnectionname }
+
+      ManagedPolicyArns:
+        - !Ref MyIAMPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+        - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+        - arn:aws:iam::aws:policy/IAMFullAccess
   DynwfCreateCloudFormationStack:
     Type: AWS::SSM::Document
     Properties:
@@ -266,6 +325,7 @@ Resources:
               StackName: '{{ stackname }}'
   EC2Instance2:
     Type: AWS::EC2::Instance
+    DependsOn: MyOIDCProvider
     Properties:
       Tags:
         - Key: environment
@@ -319,7 +379,7 @@ Resources:
           {
           create_token
           res=$(curl -X 'POST' \
-          "https://${ DTtenant }/platform/automation/v1/workflows/355fc52c-4491-4ecd-aeef-d1e246196986/run" \
+          "https://${ DTtenant }/platform/automation/v1/workflows/1fc55164-d225-45a9-9281-07d7e62ce89d/run" \
           -H 'accept: application/json' \
           -H 'Content-Type: application/json' \
           -H "authorization: Bearer $(echo $result_dyna)" \
@@ -355,7 +415,7 @@ Resources:
                       },
                       "create_aws_systems_manager_roles_for_ec2": true,
                       "create-dynatrace-oidc-connection-settings": {
-                        "install": false,
+                        "install": ${ InstallOIDCconnection },
                         "dynatraceawsconnection": "${ Dtawsconnectionname }"
                       },
                       "AmazonSSMManagedInstanceCore_instance_profile_ec2": "AmazonSSMManagedInstanceCore",
@@ -383,4 +443,7 @@ Resources:
           sleep 90
           shutdown -h now
 
-
+Outputs:
+  IAMRoleARN:
+    Description: The ARN of the created IAM Role
+    Value: !GetAtt MyOIDCProviderRole.Arn

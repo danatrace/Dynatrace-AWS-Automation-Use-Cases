@@ -7,6 +7,29 @@ This is a list of assets that the setup creates:
 
 ## AWS Assets Created by the Setup
 
+### AWS OIDC Connection for Workflows
+The setup creates an Open ID Connection needed for Dynatrace Workflow Actions to connect to AWS Accounts.
+
+- **Name of OIDC Connection that will be created :**  
+  - `https://token.dynatrace.com`  (If setup is done for a Dynatrace production tenant)
+  - `https://hard.token.dynatracelabs.com` (If setup is done for a Dynatrace sprint tenant) (For Dynatrace Internal use
+    
+- **References:**  
+  - [Dynatrace AWS Workflows Setup](https://docs.dynatrace.com/docs/analyze-explore-automate/workflows)
+  - [AWS OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+  - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
+    
+- **Name of the role that will be created:** `dynatrace_oidc_conn_for_workflows`  
+  **I am policies that will be attached to this role:**  
+    - <p> arn:aws:iam::aws:policy/AmazonEC2FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances) </p>
+    - <p> arn:aws:iam::aws:policy/AmazonS3FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files) </p>
+    - <p> arn:aws:iam::aws:policy/AmazonSSMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)</p>
+    - <p> arn:aws:iam::aws:policy/AWSCloudFormationFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)</p>
+    - <p> arn:aws:iam::aws:policy/IAMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete IAM Roles)</p>
+
+- **Custom IAM Policy that will be created and attached to the role:** `dynatrace_workflow_list_regions`  
+Attached to allow listing AWS regions for dropdown menus in AWS Actions.
+
 ---
 
 ### AWS Systems Manager

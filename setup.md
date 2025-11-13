@@ -6,32 +6,6 @@ Welcome to the Dynatrace AWS Automation Use Cases Setup Guide.
 This guide provides a step-by-step walkthrough for automatically installing all required assets to implement a suite of Dynatrace AWS remediation use cases. It includes chaos testing workflows to simulate problem scenarios, infrastructure to support those tests, and a robust enterprise-grade permission model built on Dynatrace Policies and Groups.
 The setup must be performed by the designated Dynatrace user who will act as the Workflow Owner. Please follow each step carefully, as skipping any part may result in an incomplete setup and require manual uninstall steps.
 
-
-
-### Prerequisites
-#### *Set up the Dynatrace AWS monitoring connection:*
-Please follow the steps in the Dynatrace Documentation to setup a monitoring connection to your AWS accounts.
-https://docs.dynatrace.com/docs/observe/infrastructure-monitoring/cloud-platform-monitoring/clouds-app-preview/create-aws-connection
-
-
-#### *Set up the Dynatrace OIDC connection for workflow actions:*
-https://docs.dynatrace.com/docs/analyze-explore-automate/workflows/actions/aws/aws-workflows-setup
-#### NOTE! We recommend using the AWS Account id as OIDC connection name to easier automate accross AWS accounts
-
-- **The role created for the OIDC connection needs to have the following permissions:** 
-  **I am policies that will be attached to this role:**  
-    - <p> arn:aws:iam::aws:policy/AmazonEC2FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify Ec2 Instances) </p>
-    - <p> arn:aws:iam::aws:policy/AmazonS3FullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete/modify S3 Buckets and upload and delete files) </p>
-    - <p> arn:aws:iam::aws:policy/AmazonSSMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete SSM Documents/Runbooks)</p>
-    - <p> arn:aws:iam::aws:policy/AWSCloudFormationFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/execute/delete Cloudformation Stacks)</p>
-    - <p> arn:aws:iam::aws:policy/IAMFullAccess <br> (Needed to give Dynatrace Actions the permissions to create/delete IAM Roles)</p>
-#### NOTE! The arn:aws:iam::aws:policy/IAMFullAccess permission is only needed for the setup, it can be removed after the setup is completed, unless you are planning to automate Iam resources with Dynatrace workflows, for example delete/create Iam roles.
-
-- **References:**  
-  - [AWS OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
-  - [AWS IAM Identity Providers](https://us-east-1.console.aws.amazon1#/identity_providers)
-
-
 ### **Step 1: Create user permissions needed to run the setup**
 #### *Create a Dynatrace Policy:*
 1. Go to "Dynatrace Account Management", click on "Identitiy & Access Management" and chose "Policy Management" from the Dropdown menu.
